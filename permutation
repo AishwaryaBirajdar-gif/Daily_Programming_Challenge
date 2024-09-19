@@ -1,0 +1,35 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class permutation {
+    public static Set<String> getPermutations(String str) {
+        Set<String> permutations = new HashSet<>();
+        
+        if (str == null) {
+            return null;
+        } else if (str.length() == 0) {
+            permutations.add("");
+            return permutations;
+        }
+        
+        char first = str.charAt(0);
+        
+        String sub = str.substring(1);
+        
+        Set<String> words = getPermutations(sub);
+        
+        for (String word : words) {
+            for (int i = 0; i <= word.length(); i++) {
+                permutations.add(word.substring(0, i) + first + word.substring(i));
+            }
+        }
+        
+        return permutations;
+    }
+
+    public static void main(String[] args) {
+        String s = "abc";
+        Set<String> permutations = getPermutations(s);
+        System.out.println("Permutations of " + s + ": " + permutations);
+    }
+}

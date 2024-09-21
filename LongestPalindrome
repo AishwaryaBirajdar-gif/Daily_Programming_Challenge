@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class LongestPalindrome {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+    String a = sc.nextLine();
+    palindrome(a);
+  
+    }
+
+    public static void palindrome(String str){
+        // so first we have to find the substring of the string
+        ArrayList<String>arr = new ArrayList<>();
+        for(int i=0;i<str.length();i++){
+            for(int j=i+1;j<str.length()+1;j++){
+                arr.add(str.substring(i,j));
+            }
+        }
+        int len =0;
+        String pali ="";
+        for(int i=0;i<arr.size();i++){
+        if(isPalindrome(arr.get(i))==true){
+            if(arr.get(i).length()>len){
+                len = arr.get(i).length();
+                pali=arr.get(i);
+            }
+          
+        }
+    }
+    System.out.println("The longest substring palindrome is"+" "+ pali);
+}
+
+    // babad : b,ba,bab,...
+
+    public static boolean isPalindrome(String s){
+
+        // if(s.length()==1){
+        //     return true;
+        // }
+        int start=0;
+        int end=s.length()-1;
+        while(start<end){
+           if(s.charAt(start)==s.charAt(end)){
+                start++;
+                end--;
+           }else{
+           return false;
+           }
+            }
+            return true;
+        }
+        
+    }

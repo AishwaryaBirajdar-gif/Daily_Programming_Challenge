@@ -1,0 +1,26 @@
+public class Lcm{
+    public static void main(String args[]){
+    System.out.println( findLcm(7, 3));
+     
+    }
+
+    // first we make the function for the GCD(gretet common divisor)
+    // for that we use the recursion method
+
+    // base condition is
+   
+    static int findGcd(int a,int b){
+        if(b==0)
+            return a;
+            return findGcd(b, a%b);
+        
+    }
+
+    // now after this we have to calculate the LCM(least common multiple)
+    // fomula os fiven as
+
+    static int findLcm(int m , int n){
+        int lcm = m*n/findGcd(m, n);
+        return lcm;
+    }
+}

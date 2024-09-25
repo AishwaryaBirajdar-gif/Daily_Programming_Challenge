@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+class Solution {
+  static public int lengthOfLongestSubstring(String s) {
+        int i=0;
+        int j=0;
+    int maxlen = 0;
+
+    Set<Character>arr = new HashSet<Character>();
+
+    while(i<s.length()){
+        if(! arr.contains(s.charAt(i))){
+            arr.add(s.charAt(i));
+            i++;
+            maxlen=Math.max(maxlen,arr.size());
+        }else{
+         arr.remove(s.charAt(j));
+         j++;
+        }
+    }
+return maxlen;
+    
+}
+
+public static void main(String args[]){
+  String str = "pwwkew";
+ System.out.println( lengthOfLongestSubstring(str));
+  
+}
+}

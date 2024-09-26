@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class DivisorNumberRecursion {
+    public static void main(String args[]){
+    
+        Scanner sc = new Scanner(System.in);
+     System.out.println(findDivisor(sc.nextInt(), 1));
+
+
+    }
+
+    static int findDivisor(int N , int i){
+        // base condition
+        if(i*i>N){
+            return 0;
+        }
+
+        // now 
+        if(N%i==0){
+            if(i==N/i){
+                return 1+findDivisor(N, i+1);
+            }else{
+                return 2+findDivisor(N, i+1);
+            }
+        }
+            return findDivisor(N, i+1);
+    }
+
+}
